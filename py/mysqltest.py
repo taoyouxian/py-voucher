@@ -41,10 +41,25 @@ headers = {'content-type': 'application/x-www-form-urlencoded',
 r = requests.post(url='http://shixin.csrc.gov.cn/honestypub/honestyObj/query.do',data =data,headers = headers)
 print(r.text)
 html=r.text
+# 可选择 Beautiful Soup 解析
 
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print
+        '遇到的开始标签：%s' % tag
+
+    def handle_endtag(self, tag):
+        print
+        '遇到的结束标签：%s' % tag
+
+    def handle_data(self, data):
+        print
+        '遇到的内容：%s' % data
+m=MyHTMLParser()
+m.feed('<H3>标题三</H3>')
 
 #需要安装chromedreiver,不同版本对应的也不一样
-
+'''
 browser = webdriver.Chrome()
 browser.get('http://shixin.csrc.gov.cn/honestypub/')
 objName=browser.find_element_by_id('objName')
@@ -57,7 +72,7 @@ for taga in tagas:
     taga.click()
 print(tagas)
 title=browser.title
-print(title)
+print(title)'''
 #browser.quit()
 
 
