@@ -1,0 +1,11 @@
+import pymysql
+conn = pymysql.connect(host='114.115.137.143', port=3306, user='hw_sxg', passwd='123456',db='py_voucher',charset='utf8')
+cur = conn.cursor()
+status=cur.execute("delete from t_publish_detail where 1=1")
+#cur.execute("insert t_publish_detail_temp select * from t_publish_detail")
+conn.commit()
+cur.close()
+cur = conn.cursor()
+#cur.execute("delete from t_publish_detail where 1=1")
+cur.close()
+conn.close()
