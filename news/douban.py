@@ -81,7 +81,7 @@ while(count<1000):
         # 创建DBSession类型:
         DBSession = sessionmaker(bind=engine)
         session = DBSession()
-        douban = PublishDetail(id=id, title=filter_emoji(title), abstract=filter_emoji(title),
+        douban = PublishDetail(id=count, title=filter_emoji(title), abstract=filter_emoji(title),
                               content=filter_emoji(content).replace(' ', ''))
         session.add(douban)
         session.commit()
