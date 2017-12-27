@@ -53,7 +53,7 @@ while(count<1000):
     # print(html)
 
     items=root.xpath('//tbody/tr[@class="pl"]')
-    print(len(items))
+    #print(len(items))
     for item in items:
 
         title=item.xpath('string(./td[@class="td-subject"])')
