@@ -119,7 +119,10 @@ for city in citys:
             session = DBSession()
             publish_detail = PublishDetail(name=name_text, code=code_text, date=date_text, branch=branch_text, category=category_text,
                                            content=detail_text)
+            # try:
             session.add(publish_detail)
+
+
             session.commit()
             session.close()
 
