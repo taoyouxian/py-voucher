@@ -65,6 +65,10 @@ while(count<1000):
         body_req.encoding='utf-8'
         body_root=etree.HTML(body_req.content)
         content=body_root.xpath('string(//div[@class="topic-content"])')
+        lis=body_root.xpath('//ul[@id="comments"]/li')
+        if(len(lis)>0):
+            for li in lis:
+                content+=li.xpath('string(./div[@class="reply-doc content"]/p)')
         print(content)
         Base = declarative_base()
         class PublishDetail(Base):
@@ -83,7 +87,7 @@ while(count<1000):
         # 创建DBSession类型:
         DBSession = sessionmaker(bind=engine)
         session = DBSession()
-        douban = PublishDetail(id=count, title=filter_emoji(title), abstract=filter_emoji(title),
+        douban = PublishDetail(id=id, title=filter_emoji(title), abstract=filter_emoji(title),
                               content=filter_emoji(content).replace(' ', ''))
         session.add(douban)
         session.commit()
