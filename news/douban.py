@@ -54,8 +54,10 @@ while(count<1000):
 
     items=root.xpath('//tbody/tr[@class="pl"]')
     #print(len(items))
+    index=0
     for item in items:
-
+        index+=1
+        id=count+index
         title=item.xpath('string(./td[@class="td-subject"])')
         print(title)
         url=item.xpath('./td[@class="td-subject"]/a/@href')[0]
