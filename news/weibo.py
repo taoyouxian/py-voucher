@@ -38,7 +38,7 @@ headers = {
            'Referer': 'https://m.weibo.cn/p/100103type%3D1%26q%3D%E4%BD%9B%E7%B3%BB?type=all&queryVal=%E4%BD%9B%E7%B3%BB&featurecode=20000320&luicode=10000011&lfid=106003type%3D1&title=%E4%BD%9B%E7%B3%BB',
            'Accept': 'application/json, text/plain, */*',
            'Accept-Encoding': 'gzip, deflate',
-           'Cookie':'_T_WM=8f2c8cf99e9df55e93cb7fde1c21bb26; ALF=1516977865; SCF=AsA9hxzgTDLUhcTMV3LTO5K0UmnQMfNkzil-wPpyg9PEQkH1PFWNxir5kA-P7RQIpxVgw7nAG-ylJzTDtO1lGjI.; SUB=_2A253R8Z2DeRhGeNL6VUU9S7KyTuIHXVUy-o-rDV6PUJbktBeLVbVkW1NSQ_fF3wjb5FW9DhfWVyob4lLOqp3O8Vh; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9W58x_KWQJBKR-oXBRqpRJCJ5JpX5K-hUgL.Fo-feoMfSK5ceoM2dJLoI79sqPSyMs-t; SUHB=0XDl04bdRhqkTu; SSOLoginState=1514386982; WEIBOCN_FROM=1110006030; M_WEIBOCN_PARAMS=featurecode%3D20000320%26luicode%3D10000011%26lfid%3D106003type%253D1%26fid%3D100103type%253D1%2526q%253D%25E4%25BD%259B%25E7%25B3%25BB%26uicode%3D10000011',
+           'Cookie':'_T_WM=8f2c8cf99e9df55e93cb7fde1c21bb26; ALF=1516990645; SCF=AsA9hxzgTDLUhcTMV3LTO5K0UmnQMfNkzil-wPpyg9PEVlyYVOXf6ynoO4OyR-Ds9Uj-7VXh20xSu5AKljoZxI4.; SUB=_2A253R5PtDeThGedL4lAV-S3IzDyIHXVUyz2lrDV6PUJbktBeLVr_kW1NVELpaAQsITK-Wt7wbp5_1n5_fLmw2CoY; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WF6hbeyo6KV8aRbhwQ5MFsl5JpX5K-hUgL.Fo2f1KzX1KeXS052dJLoI79jqg4XUgzt; SUHB=0h1Yy4nRiyM9oA; SSOLoginState=1514398654; WEIBOCN_FROM=1110006030; M_WEIBOCN_PARAMS=featurecode%3D20000320%26oid%3D4189735398158197%26luicode%3D10000011%26lfid%3D106003type%253D1%26fid%3D100103type%253D2%2526q%253D%25E4%25BD%259B%25E7%25B3%25BB%26uicode%3D10000011',
            'authorization':'oauth c3cef7c66a1843f8b3a9e6a1e3160e20',
            'X-API-Version':'3.0.91',
            'X-App-Za':'OS=Web',
@@ -55,14 +55,16 @@ while(count<10000):
         'type': 'all',
         't': 'general',  # 不变
         'queryVal': '佛系',  # 内容
-        'featurecode': '20000320',  # 不变
+        'featurecode': '200000000',  # 不变
         'luicode': '10000011',
+        'starttime':'1000000',
         'lfid': '106003type=1',
         'title': '佛系',
         'containerid': '100103type=1&q=佛系',
         'page': count
     }  # 页码----
     req = requests.get(url='https://m.weibo.cn/api/container/getIndex', params=data, headers=headers)
+    print(req.text)
     body = json.loads(req.text)
     items = body['data']['cards'][0]['card_group']
     index = 1
