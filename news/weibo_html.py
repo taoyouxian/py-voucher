@@ -57,9 +57,11 @@ while dayStart<30:
         root = etree.HTML(req.content)
         lines = root.xpath('//script[starts-with(text(),"STK && STK.pageletM && STK.pageletM.view(")]')
         index=0
+        isCaught = True
         for line in lines:
             text = line.text
             if (text.startswith('STK && STK.pageletM && STK.pageletM.view({"pid":"pl_weibo_direct"')):
+                isCaught = False
                 n = text.find('html":"')
                 substr = text[n + 7: -12]
                 print(substr)
@@ -107,6 +109,12 @@ while dayStart<30:
 
                         index += 1
         printstr = str(month) + '.' + str(dayStart) + '.' + str(pageNum)
+        if(isCaught):
+            print('is Caught! 时间为:'+time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))
+            status = input('请输入 quit 退出，继续请随意输入 \n')
+            if(status=='quit'):
+                print('结束id规则为:'+printstr)
+                exit()
         if(not hasMore):
             print(printstr+' 无数据')
             break
