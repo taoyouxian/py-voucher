@@ -20,3 +20,12 @@ CREATE TABLE `t_publish_detail_temp` (
   `content` text comment '处罚内容详情',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=739 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `douban` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT comment '主键',
+  `title` varchar(63) DEFAULT NULL,
+  `abstract` varchar(63) DEFAULT NULL,
+  `content` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
