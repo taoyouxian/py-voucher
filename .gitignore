@@ -102,3 +102,9 @@ ENV/
 
 # IDE
 .idea
+
+# resource
+*.txt
+*.jpg
+*.csv
+*.pkl
