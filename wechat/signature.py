@@ -33,14 +33,14 @@ def analyseSignature(friends):
             signature = re.sub(r'1f(\d.+)', '', signature)
             if (len(signature) > 0):
                 nlp = SnowNLP(signature)
-            emotions.append(nlp.sentiments)
-            signatures += ' '.join(jieba.analyse.extract_tags(signature, 5))
+                emotions.append(nlp.sentiments)
+                signatures += ' '.join(jieba.analyse.extract_tags(signature, 5))
 
             with open('signatures.txt', 'wt', encoding='utf-8') as file:
                 file.write(signatures)
 
     # Sinature WordCloud
-    back_coloring = np.array(Image.open('flower.jpg'))
+    back_coloring = np.array(Image.open('flower.png'))
     wordcloud = WordCloud(
         font_path='simfang.ttf',
         background_color="white",

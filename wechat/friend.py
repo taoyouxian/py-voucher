@@ -15,12 +15,9 @@ from wechat.sex import analyseSex
 from wechat.signature import analyseSignature
 
 itchat.auto_login(hotReload=True)
-
 friends = itchat.get_friends(update=True)
-
-# print(friends)
-
+print(friends)
 # analyseSex(friends)
 # analyseLocation(friends)
-analyseHeadImage(friends)
-# analyseSignature(friends)
+# analyseHeadImage(friends)
+analyseSignature(friends)

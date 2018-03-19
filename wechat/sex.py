@@ -15,7 +15,10 @@ font_set = FontProperties(fname=r"c:\windows\fonts\simsun.ttc", size=15)
 
 def analyseSex(friends):
     sexs = list(map(lambda x: x['Sex'], friends[1:]))
+    # print(sexs)
+    # print(Counter(sexs))
     counts = list(map(lambda x: x[1], Counter(sexs).items()))
+    # print(counts)
     labels = ['Unknow', 'Male', 'Female']
     colors = ['red', 'yellowgreen', 'lightskyblue']
     plt.figure(figsize=(8, 5), dpi=80)
