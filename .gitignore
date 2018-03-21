@@ -106,5 +106,6 @@ ENV/
 # resource
 *.txt
 *.jpg
+*.png
 *.csv
 *.pkl
